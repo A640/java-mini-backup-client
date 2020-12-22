@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml" >
+
+    <children>
+        <VBox AnchorPane.rightAnchor="0"
+              AnchorPane.bottomAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.topAnchor="0"
+              alignment="CENTER">
+
+            <AnchorPane>
+                <children>
+                    <HBox  AnchorPane.topAnchor="0"
+                           AnchorPane.leftAnchor="10"
+                           AnchorPane.rightAnchor="10"
+                           alignment="CENTER">
+                        <Label text="Trwa przesyłanie plików na serwer">
+                            <font>
+                                <Font name="SegoeUI" size="16" />
+                            </font>
+                        </Label>
+                    </HBox>
+
+
+                    <ProgressBar fx:id="uploadProgress"
+                                 AnchorPane.topAnchor="40"
+                                 AnchorPane.leftAnchor="30"
+                                 AnchorPane.rightAnchor="65" />
+
+                    <Label fx:id="uploadProgressLabel1" text="0%"
+                           AnchorPane.topAnchor="40"
+                           AnchorPane.rightAnchor="30" >
+                        <font>
+                            <Font name="SegoeUI" size="14" />
+                        </font>
+                    </Label>
+
+                    <Label fx:id="uploadProgressLabel2" text="0/0 Mb"
+                           AnchorPane.topAnchor="60"
+                           AnchorPane.rightAnchor="30" >
+                        <font>
+                            <Font name="SegoeUI" size="12" />
+                        </font>
+                    </Label>
+
+                </children>
+            </AnchorPane>
+
+        </VBox>
+    </children>
+</AnchorPane>

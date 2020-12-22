@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml" >
+
+    <children>
+        <!-- Welcome text -->
+        <Text text="Utwórz nowy backup aby kontynuować"
+              AnchorPane.topAnchor="20"
+              AnchorPane.leftAnchor="20" >
+            <font>
+                <Font name="SegoeUI" size="22" />
+            </font>
+        </Text>
+
+
+
+        <!-- Name -->
+
+        <Label text="Nazwa:"
+               AnchorPane.topAnchor="70"
+               AnchorPane.leftAnchor="20" />
+
+        <TextField fx:id="backup_name"
+                   AnchorPane.topAnchor="70"
+                   AnchorPane.leftAnchor="70"
+                   AnchorPane.rightAnchor="50" />
+
+
+
+        <!-- Description -->
+
+        <Label text="Opis:"
+               AnchorPane.topAnchor="100"
+               AnchorPane.leftAnchor="20" />
+
+        <TextArea fx:id="backup_description"
+                  AnchorPane.topAnchor="100"
+                  AnchorPane.leftAnchor="70"
+                  AnchorPane.rightAnchor="50"
+                  AnchorPane.bottomAnchor="70" />
+
+
+
+        <Button text="Stwórz backup"
+                onAction="#createBackup"
+                AnchorPane.bottomAnchor="30"
+                AnchorPane.rightAnchor="50"/>
+
+
+
+    </children>
+
+</AnchorPane>

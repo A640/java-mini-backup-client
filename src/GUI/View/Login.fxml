@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="GUI.Controllers.Login"
+          prefHeight="400.0" prefWidth="600.0"
+          alignment="CENTER"
+          hgap="10"
+          vgap="10"
+          style="-fx-padding: 0 5 10 5;">
+
+    <children>
+        <!-- Welcome text -->
+        <Text text="Witaj, zaloguj się"
+              GridPane.columnIndex="0"
+              GridPane.rowIndex="0"
+              GridPane.columnSpan="2"
+              GridPane.rowSpan="1">
+            <font>
+                <Font name="SegoeUI" size="22" />
+            </font>
+        </Text>
+
+
+
+        <!-- Login  -->
+
+        <Label text="Użytkownik:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="1" />
+
+        <TextField fx:id="login"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="1" />
+
+
+
+        <!-- Password -->
+
+        <Label text="Hasło:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="2" />
+
+        <PasswordField fx:id="password"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="2" />
+
+
+
+        <Button text="Zaloguj się"
+                onAction="#login"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="4" />
+
+        <Button text="Zarejestruj się"
+                onAction="#sRegister"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="4" />
+
+    </children>
+
+</GridPane>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Box?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <children>
+
+        <TabPane AnchorPane.leftAnchor="0"
+                 AnchorPane.rightAnchor="0"
+                 AnchorPane.bottomAnchor="0"
+                 AnchorPane.topAnchor="0"
+                 tabMinHeight="50"
+                 tabClosingPolicy="UNAVAILABLE" >
+
+            <!-- My files view -->
+            <Tab fx:id="download_tab"
+                 text="my files">
+
+
+
+            </Tab>
+
+            <!-- Send files view -->
+            <Tab fx:id="upload_tab"
+                 text="send files">
+
+
+            </Tab>
+
+        </TabPane>
+
+        <!-- Server status -->
+        <GridPane maxWidth="100"
+                  maxHeight="100"
+                  AnchorPane.rightAnchor="10"
+                  layoutY="5"
+                  hgap="5"
+                  vgap="0">
+
+            <Label text="127.0.0.1"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="0"
+                   GridPane.columnSpan="2"
+                   GridPane.rowSpan="1" >
+                <font>
+                    <Font name="SegoeUI" size="14" />
+                </font>
+            </Label>
+
+            <Circle fx:id="statusC"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="1"
+                    fill="07da63"
+                    radius="3" />
+
+            <Label text="połączono"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="1">
+                <font>
+                    <Font name="SegoeUI" size="10" />
+                </font>
+            </Label>
+
+        </GridPane>
+    </children>
+</AnchorPane>
