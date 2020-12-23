@@ -31,21 +31,21 @@
 
         <!-- Name -->
 
-        <Label text="Imie:"
+        <Label text="Name:"
                GridPane.columnIndex="0"
                GridPane.rowIndex="1" />
 
-        <TextField fx:id="r_name"
+        <TextField fx:id="name"
                    GridPane.columnIndex="1"
                    GridPane.rowIndex="1" />
 
         <!-- Surname  -->
 
-        <Label text="Nazwisko:"
+        <Label text="Surname:"
                GridPane.columnIndex="0"
                GridPane.rowIndex="2" />
 
-        <TextField fx:id="r_surname"
+        <TextField fx:id="surname"
                    GridPane.columnIndex="1"
                    GridPane.rowIndex="2" />
 
@@ -53,11 +53,11 @@
 
         <!-- Login  -->
 
-        <Label text="Użytkownik:"
+        <Label text="Login:"
                GridPane.columnIndex="0"
                GridPane.rowIndex="3" />
 
-        <TextField fx:id="r_login"
+        <TextField fx:id="login"
                    GridPane.columnIndex="1"
                    GridPane.rowIndex="3" />
 
@@ -65,18 +65,22 @@
 
         <!-- Password -->
 
-        <Label text="Hasło:"
+        <Label text="Password:"
                GridPane.columnIndex="0"
                GridPane.rowIndex="4" />
 
-        <PasswordField fx:id="r_password"
+        <PasswordField fx:id="password"
                    GridPane.columnIndex="1"
                    GridPane.rowIndex="4" />
 
 
 
-        <Button text="Zarejestruj się"
+        <Button text="Register"
                 onAction="#register"
+                GridPane.columnIndex="2"
+                GridPane.rowIndex="5" />
+        <Button text="Cancel"
+                onAction="#cancel"
                 GridPane.columnIndex="1"
                 GridPane.rowIndex="5" />
 

@@ -10,7 +10,8 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml" >
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GUI.Controllers.upload.createBackup">
 
     <children>
         <!-- Welcome text -->
@@ -26,35 +27,35 @@
 
         <!-- Name -->
 
-        <Label text="Nazwa:"
+        <Label text="Name:"
                AnchorPane.topAnchor="70"
                AnchorPane.leftAnchor="20" />
 
         <TextField fx:id="backup_name"
                    AnchorPane.topAnchor="70"
-                   AnchorPane.leftAnchor="70"
-                   AnchorPane.rightAnchor="50" />
+                   AnchorPane.leftAnchor="90"
+                   AnchorPane.rightAnchor="70" />
 
 
 
         <!-- Description -->
 
-        <Label text="Opis:"
+        <Label text="Description:"
                AnchorPane.topAnchor="100"
                AnchorPane.leftAnchor="20" />
 
         <TextArea fx:id="backup_description"
                   AnchorPane.topAnchor="100"
-                  AnchorPane.leftAnchor="70"
-                  AnchorPane.rightAnchor="50"
+                  AnchorPane.leftAnchor="90"
+                  AnchorPane.rightAnchor="70"
                   AnchorPane.bottomAnchor="70" />
 
 
 
-        <Button text="Stwórz backup"
+        <Button text="Create backup"
                 onAction="#createBackup"
                 AnchorPane.bottomAnchor="30"
-                AnchorPane.rightAnchor="50"/>
+                AnchorPane.rightAnchor="70"/>
 
 
 

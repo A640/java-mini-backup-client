@@ -20,6 +20,7 @@ public class SceneManager {
         SERVER,
         LOGIN,
         REGISTER,
+        MAIN,
     }
 
     private SceneManager(){}
@@ -32,7 +33,7 @@ public class SceneManager {
 
         scenes = new ArrayList<>();
 
-        Parent chooseServerRoot, loginRoot, registerRoot;
+        Parent chooseServerRoot, loginRoot, registerRoot, mainRoot;
 
         chooseServerRoot = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/View/ChooseServer.fxml"));
         Scene chooseServer = new Scene(chooseServerRoot, 800, 600);
@@ -43,11 +44,15 @@ public class SceneManager {
         registerRoot = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/View/Register.fxml"));
         Scene register = new Scene(registerRoot, 800, 600);
 
+        mainRoot = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/View/MainView.fxml"));
+        Scene main = new Scene(mainRoot, 800, 600);
+
 
 
         scenes.add(chooseServer);
         scenes.add(login);
         scenes.add(register);
+        scenes.add(main);
     }
 
     public static SceneManager getInstance() {
@@ -62,6 +67,11 @@ public class SceneManager {
         primaryStage.setMinWidth(800);
         primaryStage.setMinHeight(600);
     }
+
+    public Stage getPrimaryStage() {
+        return this.primaryStage;
+    }
+
     public void start() {
         primaryStage.setTitle("Backup app");
         primaryStage.setScene(getScene(SceneName.SERVER));

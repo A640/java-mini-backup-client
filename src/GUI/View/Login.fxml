@@ -33,7 +33,7 @@
 
         <!-- Login  -->
 
-        <Label text="Użytkownik:"
+        <Label text="User:"
                GridPane.columnIndex="0"
                GridPane.rowIndex="1" />
 
@@ -45,7 +45,7 @@
 
         <!-- Password -->
 
-        <Label text="Hasło:"
+        <Label text="Password:"
                GridPane.columnIndex="0"
                GridPane.rowIndex="2" />
 
@@ -55,13 +55,13 @@
 
 
 
-        <Button text="Zaloguj się"
+        <Button text="Log in"
                 onAction="#login"
                 GridPane.columnIndex="1"
                 GridPane.rowIndex="4" />
 
-        <Button text="Zarejestruj się"
-                onAction="#sRegister"
+        <Button text="Register"
+                onAction="#register"
                 GridPane.columnIndex="0"
                 GridPane.rowIndex="4" />
 

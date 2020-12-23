@@ -15,18 +15,17 @@ import java.util.concurrent.Semaphore;
 public class MainConnection {
 
     private Socket socket;
-    private String host;
+
     private DataOutputStream send;
     private DataInputStream receive;
+
+    private String host;
+    private int port;
     private String uLogin;
     private String uPassword;
-    private int backupID;
-    private long u1;
-    private long u2;
-    private ExecutorService transfers;
-    ProgressBar uProgress;
-    ProgressBar dProgress;
-    //private final Semaphore mutex;
+
+
+
 
     private static MainConnection instance = null;
 
@@ -45,8 +44,9 @@ public class MainConnection {
         boolean result = false;
         try{
             //establish connection with serverSocket
-            socket = new Socket(address, port);
-            host = address;
+            this.socket = new Socket(address, port);
+            this.host = address;
+            this.port = port;
 
             //create output stream for sending data to server
             send = new DataOutputStream(socket.getOutputStream());
@@ -66,6 +66,113 @@ public class MainConnection {
         return result;
     }
 
+    public boolean login(String login, String password){
+        boolean result = false;
+        try {
+            send.writeUTF("login");
+            send.writeUTF(login);
+            send.writeUTF(password);
+            send.flush();
+        }catch (Exception e){
+            SceneManager.getInstance().error("Connection error", "An connection error occurred while trying to log in.", e.toString());
+        }
+        try{
+            if(receive.readUTF().equals("login") ){
+                if(receive.readBoolean() == true){
+                    result = true;
+                    this.uLogin = login;
+                    this.uPassword = password;
+                }
+                else {
+                    result = false;
+                    SceneManager.getInstance().warning("Login", "Bad login credentials",
+                            "Provided login or password is incorrect. Check then and try again");
+                }
+            }
+        } catch (IOException e) {
+            SceneManager.getInstance().error("Connection error", "An connection error occurred while trying to log in.", e.toString());
+        }
+        return result;
+    }
+
+    public boolean register(String name, String surname, String login, String password){
+        boolean result = false;
+        try {
+            send.writeUTF("register");
+            send.writeUTF(name);
+            send.writeUTF(surname);
+            send.writeUTF(login);
+            send.writeUTF(password);
+            send.flush();
+        }catch (Exception e){
+            SceneManager.getInstance().error("Connection error", "An connection error occurred while trying to register.", e.toString());
+        }
+        try{
+            if(receive.readUTF().equals("register") ){
+                if(receive.readBoolean() == true){
+                    result = true;
+                }
+                else {
+                    result = false;
+                }
+            }
+        } catch (IOException e) {
+            SceneManager.getInstance().error("Connection error", "An connection error occurred while trying to register.", e.toString());
+        }
+        return result;
+    }
+
+    public boolean createBackup(String name, String description){
+
+        boolean result = false;
+
+        try {
+            send.writeUTF("createBackup");
+            send.writeUTF(name);
+            send.writeUTF(description);
+            send.flush();
+        }catch (Exception e){
+            SceneManager.getInstance().error("Connection error", "An connection error occurred while " +
+                    "trying to create new backup.", e.toString());
+        }
+
+        int backupID = -1;
+        UploadManager.getInstance().clear();
+
+        try{
+            backupID = receive.readInt();
+        } catch (IOException e) {
+            SceneManager.getInstance().error("Connection error", "An connection error occurred while " +
+                    "trying to get backup id.", e.toString());
+        }
+
+        UploadManager.getInstance().setBackupID(backupID);
+
+        if (backupID != -1){
+            result = true;
+        }
+        else{
+            result = false;
+        }
+
+        return result;
+
+    }
 
 
+    public String getHost() {
+        return host;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public String getuLogin() {
+        return uLogin;
+    }
+
+    public String getuPassword() {
+        return uPassword;
+    }
 }

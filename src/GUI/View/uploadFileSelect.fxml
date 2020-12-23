@@ -9,7 +9,8 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml">
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GUI.Controllers.upload.FileSelect">
 
     <children>
 
@@ -31,12 +32,12 @@
 
 
         <Button text="Usuń"
-                onAction="#login"
+                onAction="#remove"
                 AnchorPane.topAnchor="10"
                 AnchorPane.rightAnchor="10" />
 
         <Button text="Wybierz pliki"
-                onAction="#uChoose"
+                onAction="#fileChoose"
                 AnchorPane.leftAnchor="10"
                 AnchorPane.bottomAnchor="10" />
 

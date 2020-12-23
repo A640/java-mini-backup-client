@@ -8,6 +8,7 @@
 
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx"
+            fx:controller="GUI.Controllers.upload.Status"
             xmlns:fx="http://javafx.com/fxml" >
 
     <children>
@@ -36,9 +37,17 @@
                                  AnchorPane.leftAnchor="30"
                                  AnchorPane.rightAnchor="65" />
 
-                    <Label fx:id="uploadProgressLabel1" text="0%"
+                    <Label fx:id="uploadProgressLabel1" text="0\%"
                            AnchorPane.topAnchor="40"
                            AnchorPane.rightAnchor="30" >
+                        <font>
+                            <Font name="SegoeUI" size="14" />
+                        </font>
+                    </Label>
+
+                    <Label text="\%"
+                           AnchorPane.topAnchor="40"
+                           AnchorPane.rightAnchor="16" >
                         <font>
                             <Font name="SegoeUI" size="14" />
                         </font>
@@ -51,6 +60,7 @@
                             <Font name="SegoeUI" size="12" />
                         </font>
                     </Label>
+
 
                 </children>
             </AnchorPane>
