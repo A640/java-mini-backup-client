@@ -9,6 +9,7 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -30,6 +31,7 @@ public class FileSelect {
     private ListView<File> uList; // graphical list of files to upload
     private ObservableList<File> filesToSend; // list of files to upload
     private ExecutorService transfers;
+
 
 
     public FileSelect(){
@@ -110,13 +112,21 @@ public class FileSelect {
     }
 
     public void remove(ActionEvent actionEvent) {
+        File f = uList.getSelectionModel().getSelectedItem();
+        filesToSend.remove(f);
     }
 
     public void upload(ActionEvent actionEvent) {
-        MainView.getInstance().setUploadStep(MainView.UploadStep.UPLOAD);
-        UploadManager.getInstance().setFiles(filesToSend);
-        transfers.execute(UploadManager.getInstance());
-//        clear();
+        if(filesToSend.size() > 0){
+            MainView.getInstance().setUploadStep(MainView.UploadStep.UPLOAD);
+            UploadManager.getInstance().setFiles(filesToSend);
+            transfers.execute(UploadManager.getInstance());
+//          clear();
+        }
+        else{
+            SceneManager.getInstance().warning("Nie można wysłać","Nie wybrano plików do wysłania. Wybierz pliki do wysłania i spróbuj ponownie");
+        }
+
 
         //UploadManager.getInstance().run();
 

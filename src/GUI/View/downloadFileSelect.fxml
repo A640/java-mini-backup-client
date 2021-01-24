@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GUI.Controllers.download.FileSelect">
+
+    <children>
+
+        <Label text="Wybierz pliki do pobrania"
+               AnchorPane.topAnchor="10"
+               AnchorPane.leftAnchor="10">
+            <font>
+                <Font name="SegoeUI" size="14" />
+            </font>
+        </Label>
+
+        <BorderPane fx:id="blPane"
+                    AnchorPane.topAnchor="50"
+                    AnchorPane.leftAnchor="10"
+                    AnchorPane.rightAnchor="10"
+                    AnchorPane.bottomAnchor="50"
+
+        />
+
+        <Button text="Wstecz"
+                onAction="#back"
+                AnchorPane.leftAnchor="10"
+                AnchorPane.bottomAnchor="10" />
+
+
+        <Button text="Wybierz lokalizację do zapisania backupu"
+                onAction="#selectBackupDownloadLocation"
+                AnchorPane.rightAnchor="10"
+                AnchorPane.bottomAnchor="10" />
+
+
+    </children>
+
+</AnchorPane>

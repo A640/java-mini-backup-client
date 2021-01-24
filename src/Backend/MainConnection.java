@@ -1,23 +1,22 @@
 package Backend;
 
+import common.Backup;
 import GUI.Controllers.SceneManager;
-import javafx.scene.control.ProgressBar;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Semaphore;
+import java.util.List;
 
 
 public class MainConnection {
 
     private Socket socket;
 
-    private DataOutputStream send;
-    private DataInputStream receive;
+    private ObjectOutputStream send;
+    private ObjectInputStream receive;
 
     private String host;
     private int port;
@@ -49,10 +48,10 @@ public class MainConnection {
             this.port = port;
 
             //create output stream for sending data to server
-            send = new DataOutputStream(socket.getOutputStream());
+            send = new ObjectOutputStream(socket.getOutputStream());
 
             //create input stream for reading response from server
-            receive = new DataInputStream(socket.getInputStream());
+            receive = new ObjectInputStream(socket.getInputStream());
 
             result = true;
         } catch (UnknownHostException e) {
@@ -159,6 +158,27 @@ public class MainConnection {
 
     }
 
+    public List<Backup> getBackups(){
+        Object temp;
+        List<Backup> backups = null;
+        try {
+            send.writeUTF("getBackupList");
+            send.flush();
+        }catch (Exception e){
+            SceneManager.getInstance().error("Connection error", "An connection error occurred while trying to get user backups.", e.toString());
+        }
+        try{
+            if(receive.readUTF().equals("backups") ){
+                backups = (List<Backup>) receive.readObject();
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            SceneManager.getInstance().error("Connection error", "An connection error occurred while trying to log in.", e.toString());
+        }
+        DownloadManager.getInstance().backups.clear();
+        DownloadManager.getInstance().backups.addAll(backups);
+
+        return backups;
+    }
 
     public String getHost() {
         return host;
