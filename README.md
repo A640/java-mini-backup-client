@@ -3,7 +3,7 @@ Simple Java application for creating files backup. This is `client` side of app.
 
 ## Introduction
 
-This project was created as final project for my Java classes. The goal was to create an app using only Java and JavaFX and practise some usefult programming concepts.
+This project was created as final project for my Java classes. The goal was to create an app using only Java and JavaFX and practice some usefult programming concepts.
 
 
 ## Technologies
@@ -20,7 +20,7 @@ This project was created as final project for my Java classes. The goal was to c
 
 - MySQL database
 
-## Practised concepts
+## Practiced concepts
 
 - concurrent tasks
 - task synchronization (Mutex, CountDownLatch)
